@@ -5,7 +5,7 @@ const cors = require("cors");
 const puppeteer = require("puppeteer");
 
 // App config
-server.use(cors({ credentials: true, origin: true }));
+server.use(cors());
 server.use(bodyParser.json());
 server.use(
   bodyParser.urlencoded({
