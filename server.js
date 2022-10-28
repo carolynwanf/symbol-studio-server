@@ -17,10 +17,7 @@ server.use(
 server.options("*", (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "POST,GET,DELETE,PUT,OPTIONS");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Content-type,Accept,X-Custom-Header"
-  );
+  res.header("Access-Control-Allow-Headers", "*");
 
   res.sendStatus(200);
 });
