@@ -4,5 +4,23 @@
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "puppeteer": "^19.2.0"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "symbol-studio-server",
+  "version": "1.0.0",
+  "description": "server for symbolstudio",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carolynwanf/symbol-studio-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carolynwanf/symbol-studio-server/issues"
+  },
+  "homepage": "https://github.com/carolynwanf/symbol-studio-server#readme"
 }
