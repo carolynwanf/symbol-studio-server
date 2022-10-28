@@ -5,7 +5,7 @@ const cors = require("cors");
 const puppeteer = require("puppeteer");
 
 // App config
-server.use(cors());
+server.use(cors({ credentials: true, origin: true }));
 server.use(bodyParser.json());
 server.use(
   bodyParser.urlencoded({
@@ -14,20 +14,11 @@ server.use(
   })
 );
 
-server.options("*", (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "POST,GET,DELETE,PUT,OPTIONS");
-  res.header("Access-Control-Allow-Headers", "*");
-
-  res.sendStatus(200);
-});
-
 server.get("*", (req, res) => res.send("Hello!"));
 
 var port = process.env.PORT || 4000;
 
 server.post("/get-words", async (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
   const wordToSearch = req.body.theme;
   console.log(req.body);
   let responseWords = [];
