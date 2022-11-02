@@ -20,7 +20,6 @@ var port = process.env.PORT || 4000;
 
 server.post("/get-words", async (req, res) => {
   const wordToSearch = req.body.theme;
-  console.log(req.body);
   let responseWords = [];
   await puppeteer
     .launch({ headless: true, args: ["--no-sandbox"] })
@@ -29,7 +28,7 @@ server.post("/get-words", async (req, res) => {
       await page.goto("https://smallworldofwords.org/en/project/explore");
 
       // for console logging
-      page.on("console", (msg) => console.log("PAGE LOG:", msg.text()));
+      // page.on("console", (msg) => console.log("PAGE LOG:", msg.text()));
 
       // Wait for search box to appear
       await page.waitForSelector("#searchBox");
@@ -53,18 +52,18 @@ server.post("/get-words", async (req, res) => {
         for (let response of responses) {
           words.push(response.innerText);
         }
-        console.log(words);
+        // console.log(words);
 
         return words;
       });
 
-      console.log("words", words);
+      // console.log("words", words);
       responseWords = responseWords.concat(words);
 
       await browser.close();
     });
 
-  console.log(responseWords);
+  // console.log(responseWords);
 
   res.json({ words: responseWords });
 });
